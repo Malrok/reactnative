@@ -1,0 +1,104 @@
+{
+  "project_info": {
+    "project_number": "734028203665",
+    "firebase_url": "https://cross-platform-test.firebaseio.com",
+    "project_id": "cross-platform-test",
+    "storage_bucket": "cross-platform-test.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734028203665:android:03dd9eae179e2de8",
+        "android_client_info": {
+          "package_name": "com.moventes.moventest.ionic"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734028203665-9a2rrg8sb7jrkuanou347ae1acp6jg2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIKRj-Lw6AqvWbNoDtVaTjxOzXK6ezeTA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734028203665:android:1d0ccfe64625645e",
+        "android_client_info": {
+          "package_name": "com.moventes.moventest.nativescript"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734028203665-9a2rrg8sb7jrkuanou347ae1acp6jg2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIKRj-Lw6AqvWbNoDtVaTjxOzXK6ezeTA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734028203665:android:fde5a69760dae71d",
+        "android_client_info": {
+          "package_name": "com.reactnative"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734028203665-9a2rrg8sb7jrkuanou347ae1acp6jg2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIKRj-Lw6AqvWbNoDtVaTjxOzXK6ezeTA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
