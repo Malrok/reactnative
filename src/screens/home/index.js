@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { ActivityIndicator, Alert, FlatList, Text, TouchableOpacity, View } from 'react-native';
 import firebase from 'react-native-firebase';
 
 
-type Props = {};
-export default class App extends Component<Props> {
+export class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true, dataSource: [] };
@@ -14,22 +13,6 @@ export default class App extends Component<Props> {
 
   componentDidMount() {
     this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
-    /*.get()
-      .then((querySnapshot) => {
-        const data = [];
-        querySnapshot.forEach(doc => {
-          data.push({
-            id: doc.id,
-            first_name: doc.data().first_name,
-            last_name: doc.data().last_name
-          });
-        });
-        this.setState({
-          isLoading: false,
-          dataSource: data
-        });
-        console.warn('[componentDidMount] -- state: ', this.state);
-      })*/
   }
 
   componentWillUnmount() {
