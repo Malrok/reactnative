@@ -1,9 +1,14 @@
 import React from 'react';
-import { ActivityIndicator, Alert, FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { ActivityIndicator, FlatList, View } from 'react-native';
 import firebase from 'react-native-firebase';
+import { ListItem } from '../list-item/index';
 
+export class UsersList extends React.Component {
 
-export class HomeScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Users list',
+  };
+
   constructor(props) {
     super(props);
     this.state = { isLoading: true, dataSource: [] };
@@ -12,20 +17,19 @@ export class HomeScreen extends React.Component {
   }
 
   componentDidMount() {
-    this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+    this.unsubscribe = this.ref.onSnapshot((querySnapshot) => this.onCollectionUpdate(querySnapshot));
   }
 
   componentWillUnmount() {
     this.unsubscribe();
   }
 
-  onCollectionUpdate = (querySnapshot) => {
+  onCollectionUpdate(querySnapshot) {
     const data = [];
     querySnapshot.forEach(doc => {
       data.push({
         id: doc.id,
-        first_name: doc.data().first_name,
-        last_name: doc.data().last_name
+        ...doc.data()
       });
     });
     this.setState({
@@ -34,21 +38,9 @@ export class HomeScreen extends React.Component {
     });
   }
 
-  onPressButton(user) {
-    Alert.alert('You tapped ' + user.first_name);
-  }
-
-  renderItem(user) {
-    return (
-      <TouchableOpacity onPress={() => this.onPressButton(user)}>
-        <View>
-          <Text>{user.first_name}, {user.last_name}</Text>
-        </View>
-      </TouchableOpacity >
-    );
-  }
-
   render() {
+    const { navigate } = this.props.navigation;
+
     if (this.state.isLoading) {
       return (
         <View style={{ flex: 1, padding: 20 }}>
@@ -58,10 +50,14 @@ export class HomeScreen extends React.Component {
     }
 
     return (
-      <View style={{ flex: 1, paddingTop: 20 }}>
+      <View style={{ flex: 1 }}>
         <FlatList
           data={this.state.dataSource}
-          renderItem={({ item }) => this.renderItem(item)}
+          renderItem={({ item }) => (
+            <ListItem
+              onPress={(id) => navigate('Detail', { id })}
+              user={item} />
+          )}
           keyExtractor={(user) => user.id}
         />
       </View>

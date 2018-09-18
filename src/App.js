@@ -1,13 +1,26 @@
 import React from 'react';
 import { createStackNavigator } from 'react-navigation';
-import { HomeScreen } from './screens/home/index';
+import { Detail } from './screens/detail/index';
+import { UsersList } from './screens/list/index';
 
 const RootStack = createStackNavigator(
   {
-    Home: { screen: HomeScreen }
+    List: { screen: UsersList },
+    Detail: { screen: Detail }
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'List',
+    /* The header config from HomeScreen is now here */
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e',
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+
+    }
   }
 );
 
