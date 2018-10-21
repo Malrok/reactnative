@@ -4,6 +4,10 @@ import firebase from 'react-native-firebase';
 
 export class Detail extends React.Component {
 
+  static navigationOptions = ({ navigation }) => ({
+    title: typeof (navigation.state.params) === 'undefined' || typeof (navigation.state.params.title) === 'undefined' ? 'details' : navigation.state.params.title,
+  });
+
   constructor(props) {
     super(props);
     this.state = {
@@ -24,6 +28,7 @@ export class Detail extends React.Component {
               isLoading: false,
               user: this.user
             });
+            this.props.navigation.setParams({ title: this.user.first_name + ' ' + this.user.last_name });
           } else {
             console.error(`user with id ${this.id} not found`);
           }
