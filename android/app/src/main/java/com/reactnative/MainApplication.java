@@ -5,6 +5,7 @@ import android.support.multidex.MultiDex;
 import android.content.Context;
 
 import com.facebook.react.ReactApplication;
+import com.imagepicker.ImagePickerPackage;
 import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
@@ -28,6 +29,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(),
+            new ImagePickerPackage(),
             new RNI18nPackage(),
             new RNLanguagesPackage(), new RNFirebasePackage(),
           new RNFirebaseFirestorePackage());

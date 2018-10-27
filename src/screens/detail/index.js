@@ -1,6 +1,16 @@
 import React from 'react';
-import { ActivityIndicator, Button, TextInput, View } from 'react-native';
+import { ActivityIndicator, Button, Image, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 import firebase from 'react-native-firebase';
+import ImagePicker from 'react-native-image-picker';
+
+const options = {
+  title: 'Select Avatar',
+  customButtons: [{ name: 'fb', title: 'Choose Photo from Facebook' }],
+  storageOptions: {
+    skipBackup: true,
+    path: 'images',
+  },
+};
 
 export class Detail extends React.Component {
 
@@ -38,6 +48,23 @@ export class Detail extends React.Component {
     }
   }
 
+  pickImage() {
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        this.user.picture = response.uri;
+        this.setState({ user: this.user });
+      }
+    });
+  }
+
   onSubmit() {
     if (this.id === -1) {
       firebase.firestore().collection('users').add({ ...this.user })
@@ -61,6 +88,12 @@ export class Detail extends React.Component {
 
     return (
       <View>
+        <TouchableWithoutFeedback onPress={() => this.pickImage()}>
+          <Image
+            style={{ width: 100, height: 100, marginRight: 8 }}
+            source={{ uri: this.user.picture }}
+          />
+        </TouchableWithoutFeedback>
         <TextInput
           style={{ height: 40 }}
           placeholder="Prénom"
