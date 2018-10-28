@@ -5,6 +5,9 @@ It connects to a Google Cloud Firestore database, displays a list of stored user
 
 ## How to
 To launch the project:
-- first install ReactNative: https://facebook.github.io/react-native/docs/getting-started.html
+- install ReactNative: https://facebook.github.io/react-native/docs/getting-started.html
 - run `npm install`
 - run `react-native run-android`
+
+To display the logs while running on an Android device\
+`adb logcat *:S ReactNative:V ReactNativeJS:V`
