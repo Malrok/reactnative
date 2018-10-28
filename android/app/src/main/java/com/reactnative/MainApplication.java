@@ -28,11 +28,8 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
 
     @Override
     protected List<ReactPackage> getPackages() {
-      return Arrays.<ReactPackage>asList(new MainReactPackage(),
-            new ImagePickerPackage(),
-            new RNI18nPackage(),
-            new RNLanguagesPackage(), new RNFirebasePackage(),
-          new RNFirebaseFirestorePackage());
+      return Arrays.<ReactPackage>asList(new MainReactPackage(), new ImagePickerPackage(), new RNI18nPackage(),
+          new RNLanguagesPackage(), new RNFirebasePackage(), new RNFirebaseFirestorePackage());
     }
 
     @Override

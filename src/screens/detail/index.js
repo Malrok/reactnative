@@ -2,6 +2,8 @@ import React from 'react';
 import { ActivityIndicator, Button, Image, TextInput, TouchableWithoutFeedback, View } from 'react-native';
 import firebase from 'react-native-firebase';
 import ImagePicker from 'react-native-image-picker';
+import AddressAutocomplete from '../../components/address-autocomplete/index';
+import translate from '../../services/i18n';
 
 const options = {
   title: 'Select Avatar',
@@ -96,7 +98,7 @@ export class Detail extends React.Component {
         </TouchableWithoutFeedback>
         <TextInput
           style={{ height: 40 }}
-          placeholder="Prénom"
+          placeholder={translate('detail.first_name')}
           onChangeText={(text) => {
             this.user.first_name = text;
             this.setState({ user: this.user });
@@ -105,7 +107,7 @@ export class Detail extends React.Component {
         />
         <TextInput
           style={{ height: 40 }}
-          placeholder="Nom"
+          placeholder={translate('detail.last_name')}
           onChangeText={(text) => {
             this.user.last_name = text;
             this.setState({ user: this.user });
@@ -114,7 +116,7 @@ export class Detail extends React.Component {
         />
         <TextInput
           style={{ height: 40 }}
-          placeholder="Description"
+          placeholder={translate('detail.description')}
           onChangeText={(text) => {
             this.user.description = text;
             this.setState({ user: this.user });
@@ -123,16 +125,19 @@ export class Detail extends React.Component {
         />
         <TextInput
           style={{ height: 40 }}
-          placeholder="Email"
+          placeholder={translate('detail.email')}
           onChangeText={(text) => {
             this.user.email = text;
             this.setState({ user: this.user });
           }}
           value={this.state.user.email}
         />
+        <AddressAutocomplete
+          content={this.state.user.address}
+        />
         <Button
           onPress={() => this.onSubmit()}
-          title="SUBMIT" />
+          title={translate('action.submit')} />
       </View>
     )
   }

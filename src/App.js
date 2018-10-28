@@ -3,6 +3,7 @@ import { createStackNavigator } from 'react-navigation';
 import { Detail } from './screens/detail/index';
 import { UsersList } from './screens/list/index';
 
+
 const RootStack = createStackNavigator(
   {
     List: { screen: UsersList },
