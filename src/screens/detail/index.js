@@ -61,6 +61,10 @@ export class Detail extends React.Component {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
+        // TODO:
+        // The following ArgumentError was thrown resolving an image codec:
+        // I/flutter (16211): Invalid argument(s): Unsupported scheme 'content' in URI
+        // I/flutter (16211): content://com.reactnative.provider/app_images/Pictures/images/image-2d2a0ed6-204c-4103-a033-2208b1796bc4.jpg
         this.user.picture = response.uri;
         this.setState({ user: this.user });
       }
