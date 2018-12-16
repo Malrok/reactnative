@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, View } from 'react-native';
+import ActionButton from 'react-native-action-button';
 import firebase from 'react-native-firebase';
 import translate from '../../services/i18n';
 import { ListItem } from '../list-item/index';
@@ -61,6 +62,10 @@ export class UsersList extends React.Component {
               user={item} />
           )}
           keyExtractor={(user) => user.id}
+        />
+        <ActionButton
+          buttonColor="rgba(231,76,60,1)"
+          onPress={() => navigate('Detail', { id: -1 })}
         />
       </View>
     );

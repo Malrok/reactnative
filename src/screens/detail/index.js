@@ -47,6 +47,11 @@ export class Detail extends React.Component {
         }).catch(err => console.error(err));
     } else {
       console.warn(`id === -1 -- setting new user`);
+      this.user = {};
+      this.setState({
+        isLoading: false,
+        user: this.user
+      });
     }
   }
 

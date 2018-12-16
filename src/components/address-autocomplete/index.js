@@ -14,13 +14,15 @@ class AddressAutoComplete extends React.Component {
   }
 
   componentDidMount() {
-    Geocoder.geocodePosition(this.props.content.latitude, this.props.content.longitude)
-      .then(result => {
-        var addressComponent = result.formatted_address;
-        this.setState({
-          address: addressComponent
-        });
-      }).catch(error => console.warn(error));
+    if (this.props.content && this.props.content.latitude && this.props.content.longitude) {
+      Geocoder.geocodePosition(this.props.content.latitude, this.props.content.longitude)
+        .then(result => {
+          var addressComponent = result.formatted_address;
+          this.setState({
+            address: addressComponent
+          });
+        }).catch(error => console.warn(error));
+    }
   }
 
   setModalVisible(visible) {
