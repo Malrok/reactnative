@@ -11,3 +11,11 @@ To launch the project:
 
 To display the logs while running on an Android device\
 `adb logcat *:S ReactNative:V ReactNativeJS:V`
+
+To install a release apk
+- modify the android/gradle.properties file to add the following:
+MYAPP_RELEASE_STORE_FILE=F:/Android/keystore/Keystore
+MYAPP_RELEASE_KEY_ALIAS=mrk playing with android
+MYAPP_RELEASE_STORE_PASSWORD=xxxx
+MYAPP_RELEASE_KEY_PASSWORD=xxxx
+- execute this command line in the android directory: `gradlew installRelease`
