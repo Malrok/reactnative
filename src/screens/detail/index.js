@@ -46,7 +46,6 @@ export class Detail extends React.Component {
           }
         }).catch(err => console.error(err));
     } else {
-      console.warn(`id === -1 -- setting new user`);
       this.user = {};
       this.setState({
         isLoading: false,
@@ -61,7 +60,6 @@ export class Detail extends React.Component {
       user: this.user
     });
     ImagePicker.showImagePicker(options, (response) => {
-      console.log('Response = ', response);
 
       if (response.didCancel) {
         console.log('User cancelled image picker');
