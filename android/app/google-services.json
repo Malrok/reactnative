@@ -8,6 +8,37 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:734028203665:android:9a62fdde97ac8ed9",
+        "android_client_info": {
+          "package_name": "com.example.flutterr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734028203665-9a2rrg8sb7jrkuanou347ae1acp6jg2c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIKRj-Lw6AqvWbNoDtVaTjxOzXK6ezeTA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:734028203665:android:03dd9eae179e2de8",
         "android_client_info": {
           "package_name": "com.moventes.moventest.ionic"
@@ -70,9 +101,9 @@
     },
     {
       "client_info": {
-        "mobilesdk_app_id": "1:734028203665:android:fde5a69760dae71d",
+        "mobilesdk_app_id": "1:734028203665:android:d91e8812e4163278",
         "android_client_info": {
-          "package_name": "com.reactnative"
+          "package_name": "com.moventes.moventest.reactnative"
         }
       },
       "oauth_client": [

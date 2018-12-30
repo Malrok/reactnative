@@ -56,6 +56,10 @@ export class Detail extends React.Component {
   }
 
   pickImage() {
+    this.setState({
+      isLoading: true,
+      user: this.user
+    });
     ImagePicker.showImagePicker(options, (response) => {
       console.log('Response = ', response);
 
@@ -66,12 +70,24 @@ export class Detail extends React.Component {
       } else if (response.customButton) {
         console.log('User tapped custom button: ', response.customButton);
       } else {
-        // TODO:
-        // The following ArgumentError was thrown resolving an image codec:
-        // I/flutter (16211): Invalid argument(s): Unsupported scheme 'content' in URI
-        // I/flutter (16211): content://com.reactnative.provider/app_images/Pictures/images/image-2d2a0ed6-204c-4103-a033-2208b1796bc4.jpg
-        this.user.picture = response.uri;
-        this.setState({ user: this.user });
+        const filename = response.uri.split('/').pop();
+        const ref = firebase.storage().ref().child(`avatars/${filename}`);
+        const uploadTask = ref.put(response.uri);
+
+        uploadTask.on('state_changed', (snapshot) => {
+          // progress...
+        }, (error) => {
+          console.error(error);
+        }, () => {
+          uploadTask.ref.getDownloadURL().then((downloadURL) => {
+            this.user.picture = downloadURL;
+            this.setState({
+              isLoading: false,
+              user: this.user
+            });
+          });
+        });
+
       }
     });
   }

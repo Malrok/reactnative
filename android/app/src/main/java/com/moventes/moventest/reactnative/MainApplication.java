@@ -1,4 +1,4 @@
-package com.reactnative;
+package com.moventes.moventest.reactnative;
 
 import android.support.multidex.MultiDexApplication;
 import android.support.multidex.MultiDex;
@@ -10,6 +10,7 @@ import com.AlexanderZaytsev.RNI18n.RNI18nPackage;
 import com.reactcommunity.rnlanguages.RNLanguagesPackage;
 import io.invertase.firebase.firestore.RNFirebaseFirestorePackage;
 import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.storage.RNFirebaseStoragePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -29,7 +30,8 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(), new ImagePickerPackage(), new RNI18nPackage(),
-          new RNLanguagesPackage(), new RNFirebasePackage(), new RNFirebaseFirestorePackage());
+          new RNLanguagesPackage(), new RNFirebasePackage(), new RNFirebaseFirestorePackage(),
+          new RNFirebaseStoragePackage());
     }
 
     @Override
