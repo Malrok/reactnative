@@ -8,6 +8,9 @@ export default {
     description: 'Description',
     email: 'Email'
   },
+  autocomplete: {
+    hint: 'Type the adress'
+  },
   address_autocomplete_modal: {
     search: 'Place to look for'
   },

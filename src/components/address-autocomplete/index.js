@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, TouchableWithoutFeedback, View } from 'react-native';
 import { Geocoder } from '../../services/geocoding';
+import translate from '../../services/i18n';
 import { AddressAutoCompleteModal } from '../address-autocomplete-modal/index';
 
 class AddressAutoComplete extends React.Component {
@@ -45,7 +46,7 @@ class AddressAutoComplete extends React.Component {
       <View>
         <AddressAutoCompleteModal visible={this.state.modalVisible} onSelect={(data, details) => this.onSelect(data, details)} />
         <TouchableWithoutFeedback onPress={() => this.setModalVisible(true)}>
-          <Text>{this.state.address}</Text>
+          <Text>{this.state.address ? this.state.address : translate('autocomplete.hint')}</Text>
         </TouchableWithoutFeedback >
       </View>
     );

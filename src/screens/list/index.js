@@ -1,6 +1,7 @@
 import React from 'react';
 import { ActivityIndicator, FlatList, View } from 'react-native';
 import ActionButton from 'react-native-action-button';
+import Toast from 'react-native-easy-toast';
 import firebase from 'react-native-firebase';
 import translate from '../../services/i18n';
 import { ListItem } from '../list-item/index';
@@ -17,6 +18,7 @@ export class UsersList extends React.Component {
     this.ref = firebase.firestore().collection('users').limit(10);
     this.unsubscribe = null;
     this.props.navigation.setParams({ title: translate('list.title') });
+    this.toast = null;
   }
 
   componentDidMount() {
@@ -39,6 +41,7 @@ export class UsersList extends React.Component {
       isLoading: false,
       dataSource: data
     });
+    setTimeout(() => this.toast.show(new Date().getTime()), 1000);
   }
 
   render() {
@@ -67,6 +70,9 @@ export class UsersList extends React.Component {
           buttonColor="rgba(231,76,60,1)"
           onPress={() => navigate('Detail', { id: -1 })}
         />
+        <Toast ref={ref => {
+          this.toast = ref;
+        }} />
       </View>
     );
   }

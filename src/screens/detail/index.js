@@ -46,7 +46,9 @@ export class Detail extends React.Component {
           }
         }).catch(err => console.error(err));
     } else {
-      this.user = {};
+      this.user = {
+        address: {}
+      };
       this.setState({
         isLoading: false,
         user: this.user
