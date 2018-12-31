@@ -31,7 +31,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(new MainReactPackage(), new ImagePickerPackage(), new RNI18nPackage(),
           new RNLanguagesPackage(), new RNFirebasePackage(), new RNFirebaseFirestorePackage(),
-          new RNFirebaseStoragePackage());
+          new RNFirebaseStoragePackage(), new TimerPackage());
     }
 
     @Override
@@ -49,6 +49,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
   public void onCreate() {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
+    TimerModule.setStartupTime();
   }
 
   @Override

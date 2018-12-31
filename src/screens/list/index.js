@@ -1,5 +1,5 @@
 import React from 'react';
-import { ActivityIndicator, FlatList, View } from 'react-native';
+import { ActivityIndicator, FlatList, NativeModules, View } from 'react-native';
 import ActionButton from 'react-native-action-button';
 import Toast from 'react-native-easy-toast';
 import firebase from 'react-native-firebase';
@@ -15,7 +15,7 @@ export class UsersList extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isLoading: true, dataSource: [] };
-    this.ref = firebase.firestore().collection('users').limit(10);
+    this.ref = firebase.firestore().collection('users');
     this.unsubscribe = null;
     this.props.navigation.setParams({ title: translate('list.title') });
     this.toast = null;
@@ -41,7 +41,10 @@ export class UsersList extends React.Component {
       isLoading: false,
       dataSource: data
     });
-    setTimeout(() => this.toast.show(new Date().getTime()), 1000);
+    NativeModules.Timer.getStartupTime().then((result) => {
+      const startupTime = new Date().getTime() - result.startupTime;
+      setTimeout(() => this.toast.show(startupTime), 1000);
+    });
   }
 
   render() {
